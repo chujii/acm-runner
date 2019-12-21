@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/spf13/acm-cli/cmd"
+import "acm-runner/cmd"
 
 func main() {
   cmd.Execute()
