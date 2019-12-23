@@ -17,4 +17,7 @@
 #idea
 .idea
 
-.acm-runner.yaml
+acm-runner.yaml
+
+# out files
+out/

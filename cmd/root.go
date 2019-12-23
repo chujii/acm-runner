@@ -47,10 +47,11 @@ func init() {
   cobra.OnInitialize(func() {
       handler.InitConfig(cfgFile)
   })
-  rootCmd.Flags().StringVarP(&cfgFile,"config", "c", "./acm-runner.yaml.example", "config file (default is ./acm-runner.yaml.example)")
+  rootCmd.Flags().StringVarP(&cfgFile,"config", "c", "./acm-runner.yaml", "config file (default is ./acm-runner.yaml)")
 }
 
 func runCmd(cmd *cobra.Command, args []string)  {
+  fmt.Println("v1.0.0")
   nc, err := handler.NewNocos(handler.Conf["namespace"].(map[string]interface{}))
   if err != nil {
    fmt.Println(err)
@@ -58,8 +59,6 @@ func runCmd(cmd *cobra.Command, args []string)  {
   }
 
   nc.ListenConfig(handler.Conf["list"].([]interface{}), func(data string, filename string) {
-    fmt.Println(data)
-    fmt.Println(filename)
     if err := ioutil.WriteFile(filename, []byte(data), 0666); err != nil {
       log.Fatalln(err)
     }
