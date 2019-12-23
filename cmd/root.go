@@ -47,7 +47,7 @@ func init() {
   cobra.OnInitialize(func() {
       handler.InitConfig(cfgFile)
   })
-  rootCmd.Flags().StringVarP(&cfgFile,"config", "c", "./acm-runner.yaml", "config file (default is ./acm-runner.yaml)")
+  rootCmd.Flags().StringVarP(&cfgFile,"config", "c", "./acm-runner.yaml.example", "config file (default is ./acm-runner.yaml.example)")
 }
 
 func runCmd(cmd *cobra.Command, args []string)  {
