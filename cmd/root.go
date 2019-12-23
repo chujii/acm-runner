@@ -19,6 +19,8 @@ import (
   "acm-runner/handler"
   "fmt"
   "github.com/spf13/cobra"
+  "io/ioutil"
+  "log"
   "os"
 )
 
@@ -49,6 +51,18 @@ func init() {
 }
 
 func runCmd(cmd *cobra.Command, args []string)  {
+  nc, err := handler.NewNocos(handler.Conf["namespace"].(map[string]interface{}))
+  if err != nil {
+   fmt.Println(err)
+   os.Exit(1)
+  }
 
+  nc.ListenConfig(handler.Conf["list"].([]interface{}), func(data string, filename string) {
+    fmt.Println(data)
+    fmt.Println(filename)
+    if err := ioutil.WriteFile(filename,[]byte(data), 0666); err != nil {
+      log.Fatalln(err)
+    }
+  })
 }
 

@@ -1,30 +1,11 @@
-config:
-  endpoint: acm.aliyun.com:8080
-  accessKey: your access key
-  secretKey: your secret key
-
 namespace:
+  id: a8dcc784-0484-4a36-8457-23c6329cd5a9
+  end_point: acm.aliyun.com:8080
+  access_key: LTAI4Fp9pAvAF11PBBhA6aWQ
+  secret_key: mxIdkJRJPUSVkKczzJH51gh48LvdlO
 
-  # custom develop namespace
-  dev:
-    id: your namespace id
-    list:
-      - dataId: data id
-        group: group
-        filename: /example/develop/your-sync-config-file-name
+list:
+  - data_id: params
+    group: chujii
+    filename: ./param.conf
 
-  # custom beta namespace
-  beta:
-    id: your namespace id
-    list:
-      - dataId: data id
-        group: group
-        filename: /example/beta/your-sync-config-file-name
-
-  # custom product namespace
-  prod:
-    id: your namespace id
-    list:
-      - dataId: data id
-        group: group
-        filename: /example/product/your-sync-config-file-name
