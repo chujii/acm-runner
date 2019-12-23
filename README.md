@@ -23,7 +23,7 @@ namespace:
 list:
   - data_id: your data id
     group: your groupon
-    filename: ./filename.json
+    filename: ./out/{data_id}.json
 
 
 ```
