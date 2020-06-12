@@ -52,7 +52,7 @@ func init() {
 
 func runCmd(cmd *cobra.Command, args []string)  {
   fmt.Println("v1.0.0")
-  nc, err := handler.NewNocos(handler.Conf["namespace"].(map[string]interface{}))
+  nc, err := handler.NewNacos(handler.Conf["namespace"].(map[string]interface{}))
   if err != nil {
    fmt.Println(err)
    os.Exit(1)

@@ -2,9 +2,7 @@ package handler
 
 import (
 	"fmt"
-	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
-	"log"
 	"os"
 )
 var Conf map[string]interface{}
@@ -27,7 +25,8 @@ func InitConfig(cfgFile string)  {
 	viper.SetConfigType("yaml")
 	// viper解析配置文件
 	if err := viper.ReadInConfig(); err != nil {
-		log.Fatalln(err)
+		fmt.Println(err)
+		os.Exit(1)
 	}
 	Conf = make(map[string]interface{})
 	Conf = viper.AllSettings()
